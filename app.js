@@ -71,7 +71,7 @@ function menuDesafios(){
             numeros();
             break;
         case 4:
-            saldo();
+            pontuacao();
             break;
         case 5:
             saldo();
