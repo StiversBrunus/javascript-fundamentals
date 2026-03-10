@@ -29,6 +29,7 @@ function isNull(valor){
 // Função de voltar ou sair
 function voltar(valor, menuDesafio){
 
+    // Se o valor digitado for null, é porque o usuário clicou em cancelar.
     if(isNull(valor)){
         if(menuDesafio){
             menuDesafios();
@@ -41,30 +42,44 @@ function voltar(valor, menuDesafio){
 }
 
 // 0. Projeto:
-function projetoNumeroSecreto (start){
+function projetoNumeroSecreto (novoJogo, numeroTentativas){
 
-    if(start){
-        alert('Boas Vindas ao Jogo do Número Secreto!');        
+    // É um novo jogo?
+    if(novoJogo && numeroTentativas == null){
+        alert('Boas Vindas ao Jogo do Número Secreto!');
+        numeroTentativas = 1;
     }
 
-    let valorDigitado = prompt('Escolha um número de 1 à 10');
     let numeroSecreto = 5;
-
+    let valorDigitado;
     let menuDesafios = false;
-   voltar(valorDigitado, menuDesafios)
 
-   valorDigitado = Number(valorDigitado);
+    while (valorDigitado != numeroSecreto) {
+        
+        valorDigitado = prompt('Escolha um número de 1 à 10');
 
-    if(valorDigitado === numeroSecreto){
-       alert(`Você acertou! O número secreto é ${numeroSecreto}! `);
-       start = false;
-       projetoNumeroSecreto(start);
-   }else{
-       alert('Infelizmente você errou o número secreto!');
+        voltar(valorDigitado, menuDesafios);
 
-       start = false;
-       projetoNumeroSecreto(start);
-   }
+        valorDigitado = Number(valorDigitado);
+
+        if(valorDigitado === numeroSecreto){
+           alert(`Você acertou! O número secreto é ${numeroSecreto}, com ${numeroTentativas}! `);
+           numeroTentativas = 0;
+       }else{
+
+           if(valorDigitado > numeroSecreto){
+                alert(`O número secreto é menor que ${valorDigitado}.`);
+           }else{
+                alert(`O número secreto é maior que ${valorDigitado}.`);
+           }
+       }
+
+        numeroTentativas++;
+        novoJogo = false;
+        projetoNumeroSecreto(novoJogo, numeroTentativas);
+    }
+
+    sair();
 
 }
 
@@ -138,19 +153,19 @@ function tirarCNH(){
 // 4. Desafio aula 02:
 function pontuacao(){
     
-    let pontuacao = prompt(`Qual é a pontuação do seu jogo?`);
+    let valorDigitado = prompt(`Qual é a pontuação do seu jogo?`);
     
     let menuDesafios = true;
-    voltar(pontuacao, menuDesafios);
+    voltar(valorDigitado, menuDesafios);
 
-    pontuacao = Number(pontuacao);
+    valorDigitado = Number(valorDigitado);
 
-    if(pontuacao >= 100){
+    if(valorDigitado >= 100){
         alert("Parabéns, você venceu!");
-        numeros();
-    }else if(pontuacao < 100 ){
+        pontuacao();
+    }else if(valorDigitado < 100 ){
         alert("Tente Novamente para Ganhar!");
-        numeros();
+        pontuacao();
     }
  }
 
@@ -163,7 +178,7 @@ function pontuacao(){
 
     saldoDisponivel = Number(saldoDisponivel);
 
-    alert(`Seu saldo da conta é ${saldoDisponivel}`);
+    alert(`Seu saldo da conta é ${saldoDisponivel}.`);
 
  }
 
