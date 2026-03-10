@@ -4,12 +4,10 @@ boasVindas();
 
 function boasVindas(nome){
 
-    if(nome != null){
-        alert(`Boas Vindas ${nome} ao Projeto de Fundamentos do Java Script`);
-    }else{
-        alert('Boas Vindas ao Projeto de Fundamentos do Java Script');
-    }
-
+    const nomeUsuario = nome ? `${nome}` : "";
+  
+    alert(`Boas Vindas ${nomeUsuario} ao Projeto de Fundamentos do Java Script.`);
+  
     menu();
 }
 
