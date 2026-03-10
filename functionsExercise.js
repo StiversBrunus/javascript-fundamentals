@@ -191,4 +191,71 @@ function pontuacao(){
     return boasVindas(nome);
  }
 
+// 7. Desafio aula 03:
+function contagem(){
 
+    let opcaoContagem =  prompt(`Selecione o tipo de Contagem você deseja;\n
+                        0.Sair
+                        1.Progressiva
+                        2.Regressiva
+                        3.Progressiva (1-10)
+                        4.Regressiva (10-0)`);
+
+    opcaoContagem = Number(opcaoContagem);
+
+    switch (opcaoContagem) {
+
+        case 1:
+            contagemProgressiva(0, null);
+            break;
+        case 2:
+            contagemRegressiva(null, 0);
+            break;
+        case 3:
+            contagemProgressiva(0, 10);
+            break;
+        case 4:
+            contagemRegressiva(10, 0);
+            break;
+        case 0:
+            voltar(null, false);   
+            break;    
+        default:
+            voltar(null, true);
+            break;
+    }
+
+}
+
+function contagemProgressiva(valorInicial, valorFinal) {
+
+    if (isNull(valorInicial)) {
+        valorInicial = prompt("Digite o valor inicial da contagem (ex: 0):");
+    } else if (isNull(valorFinal)) {
+        valorFinal = prompt("Digite o valor final da contagem (ex: 10):");
+    }
+    
+    // Enquanto 1 < 10 (1+1)
+    while (valorInicial <= valorFinal ) {
+        
+        console.log(`Contagem Progressiva: ${valorInicial}`);
+        valorInicial++;
+    }
+}
+
+function contagemRegressiva(valorInicial, valorFinal) {
+    
+    if (isNull(valorInicial)) {
+        valorInicial = prompt("Digite o valor inicial da contagem (ex: 0):");
+    } else if (isNull(valorFinal)) {
+        valorFinal = prompt("Digite o valor final da contagem (ex: 10):");
+    }
+
+    // Enquanto 10 > 0 (10-1)
+    while (valorInicial >= valorFinal ) {
+        
+        console.log(`Contagem Regressiva: ${valorInicial}`);
+        valorInicial--;
+    }
+
+}

@@ -54,7 +54,8 @@ function menuDesafios(){
                         3.Números
                         4.Jogo
                         5.Conta
-                        6.Saudação`);
+                        6.Saudação
+                        7.Contagem`);
     let menuDesafios = false;
     voltar(opcaoProjeto, menuDesafios);
     
@@ -78,6 +79,9 @@ function menuDesafios(){
             break;
         case 6:
             mensagemBoasVindas();
+            break;
+        case 7:
+            contagem();
             break;
         case 0:
             opcaoProjeto = null;
