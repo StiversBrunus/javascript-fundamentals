@@ -51,9 +51,10 @@ function projetoNumeroSecreto (novoJogo, numeroTentativas){
     }
 
     let numeroSecreto = 5;
-    let valorDigitado;
     let menuDesafios = false;
 
+    let valorDigitado = 0;
+   
     while (valorDigitado != numeroSecreto) {
         
         valorDigitado = prompt('Escolha um número de 1 à 10');
@@ -64,7 +65,6 @@ function projetoNumeroSecreto (novoJogo, numeroTentativas){
 
         if(valorDigitado === numeroSecreto){
            alert(`Você acertou! O número secreto é ${numeroSecreto}, com ${numeroTentativas}! `);
-           numeroTentativas = 0;
        }else{
 
            if(valorDigitado > numeroSecreto){
@@ -72,11 +72,10 @@ function projetoNumeroSecreto (novoJogo, numeroTentativas){
            }else{
                 alert(`O número secreto é maior que ${valorDigitado}.`);
            }
+           numeroTentativas++;
        }
-
-        numeroTentativas++;
+       
         novoJogo = false;
-        projetoNumeroSecreto(novoJogo, numeroTentativas);
     }
 
     sair();
