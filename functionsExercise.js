@@ -44,20 +44,23 @@ function voltar(valor, menuDesafio){
 // 0. Projeto:
 function projetoNumeroSecreto (novoJogo, numeroTentativas){
 
+    let intervalo;
+
     // É um novo jogo?
-    if(novoJogo && numeroTentativas == null){
+    if(novoJogo){
         alert('Boas Vindas ao Jogo do Número Secreto!');
+        intervalo = prompt("Insira um intervalo desejado:");
         numeroTentativas = 1;
     }
 
-    let numeroSecreto =  parseInt(Math.random() * 100 + 1);
+    let numeroSecreto =  parseInt(Math.random() * intervalo + 1);
     let menuDesafios = false;
 
     let valorDigitado = 0;
    
     while (valorDigitado != numeroSecreto) {
         
-        valorDigitado = prompt('Escolha um número de 1 à 100');
+        valorDigitado = prompt(`Escolha um número de 1 à ${intervalo}.`);
 
         voltar(valorDigitado, menuDesafios);
 
