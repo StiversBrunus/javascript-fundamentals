@@ -1,94 +1,153 @@
-# javascript-fundamentals
-Repository created to document my learning journey in JavaScript fundamentals, focusing on programming logic and problem-solving skills.
-
-
 # 📚 Lógica de Programação com JavaScript
 
-Repositório com minhas anotações e estudos do curso **"Lógica de Programação com JavaScript" da Alura**.
+Repositório com minhas anotações, estudos e exercícios do curso **Lógica de Programação com JavaScript da Alura**.
 
-O objetivo deste repositório é reforçar os **fundamentos da programação e da linguagem JavaScript**, documentando conceitos importantes aprendidos durante o curso.
+O objetivo deste repositório é reforçar os **fundamentos da programação e da linguagem JavaScript**, documentando conceitos importantes aprendidos durante o curso e aplicados durante o desenvolvimento dos exercícios e projetos.
+
+Além dos conteúdos do curso, também apliquei alguns **conceitos extras durante o desenvolvimento do projeto**.
 
 ---
 
-# 🧠 Aula 01 — Escopo e Declaração de Variáveis
+# 🧠 Conteúdos estudados
 
-## 1️⃣ Tipos de Escopo no JavaScript
+---
 
-### Escopo Global
+# 1️⃣ Tipos de Escopo no JavaScript
 
-* Variável declarada fora de funções e blocos.
-* Pode ser acessada por qualquer função ou bloco.
-* Existe enquanto o programa estiver rodando.
-* **Não é recomendado usar em excesso**, pois pode gerar conflitos e bugs.
+## Escopo Global
 
-### Escopo de Função
+Variável declarada fora de funções e blocos.
 
-* Variável declarada dentro de uma função.
-* Só existe dentro daquela função.
-* Fora da função não pode ser acessada.
-* Toda função cria seu próprio escopo.
+Características:
 
-### Escopo de Bloco `{ }`
+* Pode ser acessada em qualquer parte do código
+* Existe enquanto o programa estiver rodando
+* Não é recomendado usar em excesso
 
-* Variável declarada dentro de um bloco (`if`, `for`, `while`, etc.).
-* Só existe dentro das chaves `{ }`.
-* Evita vazamento de variáveis.
-* É o escopo **mais seguro e recomendado**.
+Exemplo:
+
+```javascript
+let nome = "Bruno";
+```
+
+---
+
+## Escopo de Função
+
+Variável declarada dentro de uma função.
+
+Características:
+
+* Só existe dentro da função
+* Não pode ser acessada fora dela
+* Cada função cria seu próprio escopo
+
+Exemplo:
+
+```javascript
+function exemplo(){
+   let numero = 10;
+}
+```
+
+---
+
+## Escopo de Bloco `{ }`
+
+Variável declarada dentro de blocos de código.
+
+Usado em:
+
+* if
+* for
+* while
+* switch
+
+Características:
+
+* Só existe dentro das chaves
+* Evita vazamento de variáveis
+* É mais seguro
+
+Exemplo:
+
+```javascript
+if(true){
+   let valor = 5;
+}
+```
 
 ---
 
 # 2️⃣ Tipos de Declaração de Variáveis
 
-### 🔴 `var`
+## 🔴 var
 
-* Escopo de função (ignora bloco).
-* Pode reatribuir valor.
-* Pode redeclarar no mesmo escopo.
-* Pode causar bugs.
-* **Não é recomendado em projetos modernos.**
+Características:
 
-### 🟡 `let`
+* Escopo de função
+* Pode reatribuir valor
+* Pode redeclarar no mesmo escopo
+* Pode causar bugs em projetos maiores
 
-* Escopo de bloco.
-* Pode reatribuir valor.
-* **Não pode redeclarar no mesmo escopo.**
-* Recomendado quando o valor precisa mudar.
+Exemplo:
 
-### 🟢 `const`
+```javascript
+var numero = 10;
+var numero = 20;
+```
 
-* Escopo de bloco.
-* **Não pode reatribuir valor.**
-* **Não pode redeclarar no mesmo escopo.**
-* É a forma **mais recomendada por padrão**.
+Por isso **não é recomendado em projetos modernos**.
 
 ---
 
-## ⚠️ Observação importante sobre `const`
+## 🟡 let
 
-Se declarar dentro de outro bloco, será criada **uma nova variável**:
+Características:
+
+* Escopo de bloco
+* Pode reatribuir valor
+* Não pode redeclarar no mesmo escopo
+
+Exemplo:
 
 ```javascript
-const nome = "Bruno";
-
-if (true) {
-   const nome = "Igor"; // nova variável (novo escopo)
-}
+let idade = 25;
+idade = 30;
 ```
 
-Se for **objeto ou array**, é possível alterar o conteúdo, mas **não a referência**.
+---
+
+## 🟢 const
+
+Características:
+
+* Escopo de bloco
+* Não pode reatribuir valor
+* Não pode redeclarar no mesmo escopo
+* É o mais recomendado por padrão
+
+Exemplo:
+
+```javascript
+const PI = 3.14;
+```
+
+---
+
+## Observação importante sobre `const`
+
+Quando usamos **objetos ou arrays**, podemos alterar o conteúdo interno, mas não podemos trocar a referência.
 
 Exemplo:
 
 ```javascript
 const usuario = { nome: "Bruno" };
 
-usuario.nome = "Igor"; // ✅ permitido
-
-console.log(usuario);
-// { nome: "Igor" }
+usuario.nome = "Igor"; // permitido
 ```
 
-❌ O que **não pode**:
+O que não pode:
 
 ```javascript
 usuario = { nome: "Alex" }; // erro
@@ -98,11 +157,11 @@ A `const` protege **a referência na memória**, não o conteúdo interno.
 
 ---
 
-# ⚖️ Diferença entre `=`, `==` e `===`
+# 3️⃣ Operadores de Comparação
 
-### 1️⃣ `=` (Atribuição)
+## `=` (Atribuição)
 
-Usado para **atribuir valor a uma variável**.
+Usado para atribuir valor a uma variável.
 
 ```javascript
 let numero = 10;
@@ -110,63 +169,60 @@ let numero = 10;
 
 ---
 
-### 2️⃣ `==` (Igualdade de valor)
+## `==` (Igualdade)
 
-* Compara apenas **valor**.
-* **Não compara tipo**.
-* Faz **conversão automática de tipo** (coerção).
+Compara apenas o valor.
+
+Faz conversão automática de tipo.
 
 ```javascript
-5 == "5"   // true
-null == undefined // true
+5 == "5" // true
 ```
 
 ---
 
-### 3️⃣ `===` (Igualdade estrita)
+## `===` (Igualdade Estrita)
 
-* Compara **valor e tipo**.
-* **Não faz conversão automática**.
-* É o **mais recomendado**.
+Compara valor e tipo.
+
+Não faz conversão automática.
 
 ```javascript
 5 === "5" // false
-5 === 5   // true
+5 === 5 // true
 ```
 
 ---
 
-# ⚖️ Diferença entre `!=` e `!==`
+# 4️⃣ Diferença entre `!=` e `!==`
 
-### 1️⃣ `!=` (Diferente - igualdade solta)
+## `!=`
 
-* Verifica se os valores são diferentes.
-* **Não compara tipo**.
-* Faz conversão automática.
+Verifica se valores são diferentes.
+
+Faz conversão automática de tipo.
 
 ```javascript
 5 != "5" // false
-5 != 6   // true
 ```
 
 ---
 
-### 2️⃣ `!==` (Diferente estrito)
+## `!==`
 
-* Verifica se **valor ou tipo são diferentes**.
-* **Não faz conversão automática**.
-* É o **mais recomendado**.
+Verifica se valor ou tipo são diferentes.
+
+Não faz conversão automática.
 
 ```javascript
 5 !== "5" // true
-5 !== 5   // false
 ```
 
 ---
 
-# 💬 `alert` e `prompt`
+# 5️⃣ alert e prompt
 
-### `alert()`
+## `alert()`
 
 Exibe uma mensagem na tela com botão **OK**.
 
@@ -176,19 +232,20 @@ alert("Olá!");
 
 ---
 
-### `prompt()`
+## `prompt()`
 
-Exibe uma mensagem pedindo uma informação ao usuário.
+Pede uma informação ao usuário.
 
-Sempre retorna **string ou null**.
+Sempre retorna:
+
+* string
+* ou `null` se o usuário cancelar
 
 ```javascript
 let nome = prompt("Digite seu nome:");
 ```
 
-⚠️ Mesmo que o usuário digite um número, o retorno será **string**.
-
-Para converter:
+Conversão para número:
 
 ```javascript
 let idade = Number(prompt("Digite sua idade:"));
@@ -196,27 +253,66 @@ let idade = Number(prompt("Digite sua idade:"));
 
 ---
 
-# 🧠 Aula 02
+# 6️⃣ Template String
 
-## Strings
-
-### 1️⃣ Template String (Interpolação)
-
-Permite concatenar texto e variáveis usando **crase (`)** e `${}`.
+Permite concatenar texto e variáveis usando **crase (`)**.
 
 ```javascript
 let nome = "Bruno";
 
-console.log(`Olá, ${nome}`);
+console.log(`Olá ${nome}`);
 ```
 
 ---
 
-### 2️⃣ `normalize("NFD")`
+# 7️⃣ Operador Ternário
+
+Forma curta de escrever um `if`.
+
+Estrutura:
+
+```javascript
+condicao ? valor1 : valor2
+```
+
+Exemplo:
+
+```javascript
+const nomeUsuario = nome ? nome : "";
+```
+
+---
+
+# 8️⃣ Arrays
+
+Estrutura que permite armazenar vários valores.
+
+```javascript
+let dias = ["segunda","terça","quarta"];
+```
+
+---
+
+# 9️⃣ includes()
+
+Verifica se um valor existe dentro de um **array ou string**.
+
+Retorna:
+
+* `true`
+* `false`
+
+```javascript
+dias.includes("segunda");
+```
+
+---
+
+# 🔟 Manipulação de Strings
+
+## `normalize("NFD")`
 
 Usado para separar caracteres acentuados.
-
-Muito útil para **remover acentos em comparações de texto**.
 
 ```javascript
 let texto = "ação";
@@ -226,58 +322,114 @@ texto.normalize("NFD");
 
 ---
 
-### 3️⃣ `includes()`
+## `replace()` + Regex
 
-Verifica se um texto contém outro texto.
-
-Retorna **true ou false**.
+Utilizado para remover acentos.
 
 ```javascript
-let frase = "Aprendendo JavaScript";
+texto.normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+```
 
-frase.includes("Java");   // true
-frase.includes("Python"); // false
+Resultado:
+
+```
+ação → acao
+coração → coracao
 ```
 
 ---
 
-# 🔀 Estruturas Condicionais
+# 1️⃣1️⃣ Expressões Regulares (Regex)
 
-### `if`
+Expressões utilizadas para busca e manipulação de texto.
 
-Executa um bloco de código se a condição for verdadeira.
+Exemplo utilizado no projeto:
 
-### `switch`
-
-Compara um valor com vários casos possíveis.
-
-O `switch` usa **comparação estrita (`===`)**.
+```
+/[\u0300-\u036f]/g
+```
 
 ---
 
-# ⚙️ Funções
+# 1️⃣2️⃣ Funções
 
-Blocos de código **reutilizáveis** que executam uma tarefa.
+Blocos de código reutilizáveis que executam uma tarefa.
 
 ```javascript
-function saudacao() {
-   console.log("Olá!");
+function saudacao(){
+   alert("Olá!");
 }
 ```
 
 ---
 
-# 🔁 Recursão
+# 1️⃣3️⃣ Recursão
 
-Quando **uma função chama a si mesma**.
+Quando uma função chama **a si mesma**.
+
+Exemplo:
+
+```javascript
+function repetir(){
+   repetir();
+}
+```
+
+No projeto foi utilizado para **repetir menus e fluxos de navegação**.
 
 ---
 
-# 🧩 Plugin do VS Code
+# 1️⃣4️⃣ Math.random()
 
-## Live Server
+Função usada para gerar números aleatórios.
 
-Plugin que cria um **servidor local** para visualizar o projeto no navegador.
+```javascript
+Math.random()
+```
+
+Exemplo:
+
+```javascript
+parseInt(Math.random() * 10 + 1);
+```
+
+---
+
+# 1️⃣5️⃣ Estrutura de Menu
+
+O projeto utiliza uma estrutura simples de navegação:
+
+```
+Boas vindas
+   ↓
+Menu principal
+   ↓
+Projeto ou desafios
+   ↓
+Execução da funcionalidade
+   ↓
+Voltar ou sair
+```
+
+---
+
+# 1️⃣6️⃣ Tratamento de Cancelamento
+
+Quando o usuário cancela um `prompt`, o valor retornado é:
+
+```
+null
+```
+
+Esse comportamento foi tratado no código para controlar o fluxo da aplicação.
+
+---
+
+# 🧩 Ferramentas Utilizadas
+
+## Live Server (VS Code)
+
+Plugin que cria um **servidor local para desenvolvimento**.
 
 ### Vantagens
 
@@ -302,3 +454,14 @@ para algo como:
 ```
 http://127.0.0.1:5500
 ```
+
+---
+
+# 🎯 Objetivo do Repositório
+
+Este projeto foi criado para:
+
+* praticar lógica de programação
+* reforçar fundamentos do JavaScript
+* treinar organização de código
+* documentar o aprendizado durante os estudos
