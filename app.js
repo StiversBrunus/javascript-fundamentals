@@ -53,7 +53,12 @@ function menuDesafios(){
                         4.Jogo
                         5.Conta
                         6.Saudação
-                        7.Contagem`);
+                        7.Contagem
+                        8.IMC
+                        9.Conversão de Dólar
+                        10.Area e Perímetro (Retangular, Circular)
+                        11.Tabuada
+                        `);
     let menuDesafios = false;
     voltar(opcaoProjeto, menuDesafios);
     
