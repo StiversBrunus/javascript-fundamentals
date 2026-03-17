@@ -321,3 +321,12 @@ function media (notas){
     return soma / divisor;
 }
 const multPorEleMesmo = (numero) => numero * numero;
+
+/* 
+    Next exercises:
+
+        1. Crie uma função que calcule o índice de massa corporal (IMC) de uma pessoa, a partir de sua altura, em metros, e peso, em quilogramas, que serão recebidos como parâmetro.
+
+        2. Crie uma função que converte um valor em dólar, passado como parâmetro, e retorna o valor equivalente em reais. Para isso, considere a cotação do dólar igual a R$4,80.
+
+*/
