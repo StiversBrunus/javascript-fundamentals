@@ -310,23 +310,81 @@ const getMaxArrow = (a, b) => {
 // Arrow function curta com ternário
 const getMaxShort = (a, b) => a > b ? a:b;
 
-function media (notas){
-
-    let divisor = notas.length;
-    let soma = 0;
-    for (let i = 0; i < notas.length; i++) {
-        soma += notas[i];
-    }
-
-    return soma / divisor;
-}
 const multPorEleMesmo = (numero) => numero * numero;
 
-/* 
-    Next exercises:
+function calcularMedia (){
 
-        1. Crie uma função que calcule o índice de massa corporal (IMC) de uma pessoa, a partir de sua altura, em metros, e peso, em quilogramas, que serão recebidos como parâmetro.
 
-        2. Crie uma função que converte um valor em dólar, passado como parâmetro, e retorna o valor equivalente em reais. Para isso, considere a cotação do dólar igual a R$4,80.
+    let inserirNotas = prompt(`Insira as notas desejadas separadas por vírgula: \n
+                                Ex.: '5, 8, 4, 10, 9'`);
 
-*/
+    let listaNotas = inserirNotas.split(',').map(Number);
+
+    let divisor = listaNotas.length;
+    let soma = 0;
+
+    for (let i = 0; i < listaNotas.length; i++) {
+        soma += listaNotas[i];
+    }
+
+    let resultado = soma / divisor;
+
+    alert(`Sua média é: ${resultado}`);
+    calcularMedia();
+}
+
+function calcularImc(){
+
+    let inserirPeso = prompt("Insira seu peso:");
+    let inserirAltura = prompt("Insira sua altura");
+   
+    // Se cancelar
+    if (isNull(inserirPeso) || isNull(inserirAltura)) {
+        voltar(null, true);
+    }
+
+    inserirPeso = Number(inserirPeso.replace(',','.'));
+    inserirAltura = Number(inserirAltura.replace(',','.'));
+
+    // Peso suspeito
+    if (inserirPeso > 300) {
+        let confirm = confirm(`Você não quiser dizer ${inserirPeso / 10}?`);
+
+        if (confirm) {
+            inserirPeso = inserirPeso / 10;
+        }
+        
+    }
+    
+    // Se a entrada for em CM
+    if (inserirAltura > 3) {
+        // Então converta de CM para Metros
+        inserirAltura = inserirAltura / 100;
+    }
+
+    let resultadoImc = inserirPeso / (inserirAltura * inserirAltura);
+
+    alert(`Seu IMC é: ${resultadoImc.toFixed(2)}`);
+    
+    calcularImc();
+
+}
+
+function conversaoDolar() {
+    let cotacaoDolar = prompt("Qual o valor do Dólar hoje?");
+    let valorDolar = prompt("Digite o valor em Dólar:");
+
+     // Se cancelar
+    if (isNull(cotacaoDolar) || isNull(valorDolar)) {
+        voltar(null, true);
+    }
+
+    cotacaoDolar = Number(cotacaoDolar.replace(',','.'));
+    valorDolar = Number(valorDolar.replace(',', '.'));
+
+    let resultado = valorDolar * cotacaoDolar;
+
+    resultado = alert(`Valor em reais: ${resultado.toFixed(2)}`);
+    
+    conversaoDolar(); 
+}
