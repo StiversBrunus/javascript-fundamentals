@@ -4,7 +4,7 @@ Repositório com minhas anotações, estudos e exercícios do curso **Lógica de
 
 O objetivo deste repositório é reforçar os **fundamentos da programação e da linguagem JavaScript**, documentando conceitos importantes aprendidos durante o curso e aplicados durante o desenvolvimento dos exercícios e projetos.
 
-Além dos conteúdos do curso, também apliquei alguns **conceitos extras durante o desenvolvimento do projeto**.
+Além dos conteúdos do curso, também apliquei alguns **conceitos extras durante o desenvolvimento do projeto**, elevando o nível da aplicação para além do básico.
 
 ---
 
@@ -18,64 +18,13 @@ Além dos conteúdos do curso, também apliquei alguns **conceitos extras durant
 
 Variável declarada fora de funções e blocos.
 
-Características:
-
-* Pode ser acessada em qualquer parte do código
-* Existe enquanto o programa estiver rodando
-* Não é recomendado usar em excesso
-
-Exemplo:
-
-```javascript
-let nome = "Bruno";
-```
-
----
-
 ## Escopo de Função
 
 Variável declarada dentro de uma função.
 
-Características:
-
-* Só existe dentro da função
-* Não pode ser acessada fora dela
-* Cada função cria seu próprio escopo
-
-Exemplo:
-
-```javascript
-function exemplo(){
-   let numero = 10;
-}
-```
-
----
-
 ## Escopo de Bloco `{ }`
 
-Variável declarada dentro de blocos de código.
-
-Usado em:
-
-* if
-* for
-* while
-* switch
-
-Características:
-
-* Só existe dentro das chaves
-* Evita vazamento de variáveis
-* É mais seguro
-
-Exemplo:
-
-```javascript
-if(true){
-   let valor = 5;
-}
-```
+Variável declarada dentro de blocos como `if`, `for`, `while`.
 
 ---
 
@@ -83,385 +32,266 @@ if(true){
 
 ## 🔴 var
 
-Características:
-
 * Escopo de função
-* Pode reatribuir valor
-* Pode redeclarar no mesmo escopo
-* Pode causar bugs em projetos maiores
-
-Exemplo:
-
-```javascript
-var numero = 10;
-var numero = 20;
-```
-
-Por isso **não é recomendado em projetos modernos**.
-
----
+* Pode redeclarar
 
 ## 🟡 let
 
-Características:
-
 * Escopo de bloco
-* Pode reatribuir valor
-* Não pode redeclarar no mesmo escopo
-
-Exemplo:
-
-```javascript
-let idade = 25;
-idade = 30;
-```
-
----
+* Pode reatribuir
 
 ## 🟢 const
 
-Características:
-
 * Escopo de bloco
-* Não pode reatribuir valor
-* Não pode redeclarar no mesmo escopo
-* É o mais recomendado por padrão
-
-Exemplo:
-
-```javascript
-const PI = 3.14;
-```
-
----
-
-## Observação importante sobre `const`
-
-Quando usamos **objetos ou arrays**, podemos alterar o conteúdo interno, mas não podemos trocar a referência.
-
-Exemplo:
-
-```javascript
-const usuario = { nome: "Bruno" };
-
-usuario.nome = "Igor"; // permitido
-```
-
-O que não pode:
-
-```javascript
-usuario = { nome: "Alex" }; // erro
-```
-
-A `const` protege **a referência na memória**, não o conteúdo interno.
+* Não pode reatribuir
 
 ---
 
 # 3️⃣ Operadores de Comparação
 
-## `=` (Atribuição)
-
-Usado para atribuir valor a uma variável.
-
-```javascript
-let numero = 10;
-```
+* `=` atribuição
+* `==` igualdade com coerção
+* `===` igualdade estrita
+* `!=` diferente com coerção
+* `!==` diferente estrito
 
 ---
 
-## `==` (Igualdade)
-
-Compara apenas o valor.
-
-Faz conversão automática de tipo.
-
-```javascript
-5 == "5" // true
-```
-
----
-
-## `===` (Igualdade Estrita)
-
-Compara valor e tipo.
-
-Não faz conversão automática.
-
-```javascript
-5 === "5" // false
-5 === 5 // true
-```
-
----
-
-# 4️⃣ Diferença entre `!=` e `!==`
-
-## `!=`
-
-Verifica se valores são diferentes.
-
-Faz conversão automática de tipo.
-
-```javascript
-5 != "5" // false
-```
-
----
-
-## `!==`
-
-Verifica se valor ou tipo são diferentes.
-
-Não faz conversão automática.
-
-```javascript
-5 !== "5" // true
-```
-
----
-
-# 5️⃣ alert e prompt
+# 4️⃣ Entrada e Saída de Dados
 
 ## `alert()`
 
-Exibe uma mensagem na tela com botão **OK**.
-
-```javascript
-alert("Olá!");
-```
-
----
+Exibe mensagens.
 
 ## `prompt()`
 
-Pede uma informação ao usuário.
+Captura dados do usuário.
 
-Sempre retorna:
+## `confirm()`
 
-* string
-* ou `null` se o usuário cancelar
+Exibe confirmação (OK / Cancelar)
 
-```javascript
-let nome = prompt("Digite seu nome:");
-```
+---
 
-Conversão para número:
+# 5️⃣ Template String
 
 ```javascript
-let idade = Number(prompt("Digite sua idade:"));
+`Olá ${nome}`
 ```
 
 ---
 
-# 6️⃣ Template String
-
-Permite concatenar texto e variáveis usando **crase (`)**.
-
-```javascript
-let nome = "Bruno";
-
-console.log(`Olá ${nome}`);
-```
-
----
-
-# 7️⃣ Operador Ternário
-
-Forma curta de escrever um `if`.
-
-Estrutura:
+# 6️⃣ Operador Ternário
 
 ```javascript
 condicao ? valor1 : valor2
 ```
 
-Exemplo:
+---
+
+# 7️⃣ Arrays
 
 ```javascript
-const nomeUsuario = nome ? nome : "";
+let lista = [1, 2, 3];
 ```
+
+## Métodos importantes:
+
+### `includes()`
+
+Verifica se existe um valor.
+
+### `split()`
+
+Converte string em array.
+
+### `map()`
+
+Transforma os valores do array.
+
+### `length`
+
+Retorna o tamanho do array.
 
 ---
 
-# 8️⃣ Arrays
+# 8️⃣ Manipulação de Strings
 
-Estrutura que permite armazenar vários valores.
+### `toLowerCase()`
 
-```javascript
-let dias = ["segunda","terça","quarta"];
-```
+Converte para minúsculo.
 
----
+### `toLocaleUpperCase()`
 
-# 9️⃣ includes()
+Converte para maiúsculo.
 
-Verifica se um valor existe dentro de um **array ou string**.
+### `replace()`
 
-Retorna:
+Substitui valores.
 
-* `true`
-* `false`
+### `normalize("NFD")`
 
-```javascript
-dias.includes("segunda");
-```
+Remove acentos (junto com regex).
 
 ---
 
-# 🔟 Manipulação de Strings
+# 9️⃣ Expressões Regulares (Regex)
 
-## `normalize("NFD")`
-
-Usado para separar caracteres acentuados.
-
-```javascript
-let texto = "ação";
-
-texto.normalize("NFD");
-```
+Usadas para manipulação de texto.
 
 ---
 
-## `replace()` + Regex
+# 🔟 Funções
 
-Utilizado para remover acentos.
-
-```javascript
-texto.normalize("NFD").replace(/[\u0300-\u036f]/g, "")
-```
-
-Resultado:
-
-```
-ação → acao
-coração → coracao
-```
-
----
-
-# 1️⃣1️⃣ Expressões Regulares (Regex)
-
-Expressões utilizadas para busca e manipulação de texto.
-
-Exemplo utilizado no projeto:
-
-```
-/[\u0300-\u036f]/g
-```
-
----
-
-# 1️⃣2️⃣ Funções
-
-Blocos de código reutilizáveis que executam uma tarefa.
+## Função tradicional
 
 ```javascript
-function saudacao(){
-   alert("Olá!");
+function exemplo() {}
+```
+
+## Função com retorno
+
+```javascript
+function soma(a, b){
+  return a + b;
 }
 ```
 
----
-
-# 1️⃣3️⃣ Recursão
-
-Quando uma função chama **a si mesma**.
-
-Exemplo:
+## Função anônima
 
 ```javascript
-function repetir(){
-   repetir();
-}
+const fn = function() {}
 ```
 
-No projeto foi utilizado para **repetir menus e fluxos de navegação**.
+## Arrow Function
+
+```javascript
+const fn = () => {}
+```
+
+## Arrow Function curta
+
+```javascript
+const fn = x => x * 2;
+```
+
+---
+
+# 1️⃣1️⃣ Parâmetros de Função
+
+Funções podem receber valores externos.
+
+```javascript
+function saudacao(nome){}
+```
+
+---
+
+# 1️⃣2️⃣ Recursão
+
+Função chamando a si mesma.
+
+---
+
+# 1️⃣3️⃣ Estruturas de Repetição
+
+## `while`
+
+Executa enquanto a condição for verdadeira.
+
+## `for`
+
+Loop com controle de índice.
 
 ---
 
 # 1️⃣4️⃣ Math.random()
 
-Função usada para gerar números aleatórios.
+Geração de números aleatórios.
+
+---
+
+# 1️⃣5️⃣ Conversão de Dados
+
+* `Number()`
+* `parseInt()`
+
+## Tratamento de entrada
 
 ```javascript
-Math.random()
+valor.replace(',', '.')
 ```
 
-Exemplo:
+---
+
+# 1️⃣6️⃣ Operadores de Incremento
 
 ```javascript
-parseInt(Math.random() * 10 + 1);
+valor++
+valor--
 ```
 
 ---
 
-# 1️⃣5️⃣ Estrutura de Menu
+# 1️⃣7️⃣ Encadeamento de Métodos
 
-O projeto utiliza uma estrutura simples de navegação:
-
-```
-Boas vindas
-   ↓
-Menu principal
-   ↓
-Projeto ou desafios
-   ↓
-Execução da funcionalidade
-   ↓
-Voltar ou sair
+```javascript
+texto.normalize().replace()
 ```
 
 ---
 
-# 1️⃣6️⃣ Tratamento de Cancelamento
+# 1️⃣8️⃣ Validação de Dados
 
-Quando o usuário cancela um `prompt`, o valor retornado é:
-
-```
-null
-```
-
-Esse comportamento foi tratado no código para controlar o fluxo da aplicação.
+* Verificação de `null`
+* Ajuste de valores inválidos
+* Controle de entrada do usuário
 
 ---
 
-# 🧩 Ferramentas Utilizadas
+# 1️⃣9️⃣ Funções Utilitárias (Helpers)
 
-## Live Server (VS Code)
+Funções reutilizáveis como:
 
-Plugin que cria um **servidor local para desenvolvimento**.
+* validar dados
+* remover acentos
+* controlar fluxo
 
-### Vantagens
+---
 
-* Atualiza automaticamente o navegador
-* Não precisa apertar **F5**
-* Facilita o desenvolvimento
+# 2️⃣0️⃣ Estrutura de Menu
 
-### Como usar
+Fluxo de navegação com múltiplas opções e controle de execução.
 
-1. Instalar o plugin **Live Server**
-2. Abrir o arquivo HTML
-3. Clicar em **Open with Live Server**
+---
 
-O endereço muda de:
+# 🧩 Organização do Código
 
-```
-file://diretorio-do-arquivo
-```
+O projeto foi estruturado em partes:
 
-para algo como:
-
-```
-http://127.0.0.1:5500
-```
+* Menu principal
+* Desafios
+* Utilitários
+* Lógica principal
 
 ---
 
 # 🎯 Objetivo do Repositório
 
-Este projeto foi criado para:
+* Praticar lógica de programação
+* Reforçar fundamentos do JavaScript
+* Evoluir para conceitos intermediários
+* Documentar o aprendizado
 
-* praticar lógica de programação
-* reforçar fundamentos do JavaScript
-* treinar organização de código
-* documentar o aprendizado durante os estudos
+---
+
+# 🚀 Evolução
+
+Este projeto já inclui conceitos além do básico, como:
+
+* Estruturas de repetição
+* Manipulação de arrays
+* Tratamento de dados do usuário
+* Organização de código
+
+👉 Servindo como base sólida para avançar para frameworks como React futuramente.
