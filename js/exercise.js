@@ -1,7 +1,6 @@
 /* =========================================================
-   1️⃣ ATIVIDADES DE LÓGICA DE PROGRAMAÇÃO
+   1️⃣ EXERCISES PROGRAMMING LOGIC
    ========================================================= */
-
 
 // Variaveis declaradas, mas não usadas ainda.
 let nome = 'Lua';
@@ -11,35 +10,6 @@ let numeroVendas = 50;
 let saldoDisponivel = 1000;
 
 // let mensagemErro = alert('Erro! Preencha todos os campos!')
-
-// Função de ultilizarios:
-function removerAcentos(texto){
-    
-    // Normalize NFD (Adicionar na documentacao)
-    return texto.normalize('NFD').replace(/[\u0300-\u036f]/g, "");
-}
-
-function isNull(valor){
-    if(valor === null){
-        return true;
-    }
-    return false;
-}
-
-// Função de voltar ou sair
-function voltar(valor, menuDesafio){
-
-    // Se o valor digitado for null, é porque o usuário clicou em cancelar.
-    if(isNull(valor)){
-        if(menuDesafio){
-            menuDesafios();
-        }else{
-            sair();
-        }
-        return false;
-    }
-    return false;
-}
 
 // 0. Projeto:
 function projetoNumeroSecreto (novoJogo, numeroTentativas){
@@ -187,16 +157,6 @@ function pontuacao(){
 
  }
 
- // 6. Desafio aula 02:
- function mensagemBoasVindas(){
-    let nome = prompt(`Qual o seu nome?`);
-
-    let menuDesafios = true;
-    voltar(nome, menuDesafios);
-
-    return boasVindas(nome);
- }
-
 // 7. Desafio aula 03:
 function contagem(){
 
@@ -268,52 +228,7 @@ function contagemRegressiva(valorInicial, valorFinal) {
 
 /* Exercicios de Função*/
 
-// Função anônima:
-let helloWorld = function () {
-    console.log('Olá Mundo!');
-};
-// Função Arrow:
-const saudacao = (nome) => {
-    return console.log(`Olá, ${nome}!`);
-}
-// Arrow function curta:
-const saudacaoTwo = (nome) => console.log(`Olá, ${nome}!`);
-
-/* =======================================================*/
-// Funções de multiplicar dos quatro tipos de função 
-function multiplicar (numero, fator){
-    return numero * fator;
-}
-// Função anônima:
-let multiAnon = function (numero, fator) {  
-    return numero * fator;
-};
-// Função Arrow:
-const multiArrow = (numero, fator) => {
-    return numero * fator;
-};
-// Função Arrow curta:
-const multiArrowShort = (numero, fator) => numero * fator;
-/* =======================================================*/
-// Funções com os quatro tipos de função 
-function maiorNumero (a, b){
-    return a > b ? a:b;
-}  
-// Função anônima:
-const getMaxAnon = function (a, b) {
-    return a > b ? a:b;
-}
-// Arrow function com ternário
-const getMaxArrow = (a, b) => {
-    return a > b ? a:b;
-}
-// Arrow function curta com ternário
-const getMaxShort = (a, b) => a > b ? a:b;
-
-const multPorEleMesmo = (numero) => numero * numero;
-
 function calcularMedia (){
-
 
     let inserirNotas = prompt(`Insira as notas desejadas separadas por vírgula: \n
                                 Ex.: '5, 8, 4, 10, 9'`);
@@ -388,3 +303,49 @@ function conversaoDolar() {
     
     conversaoDolar(); 
 }
+
+// Tipos de Função
+
+// Função anônima:
+let helloWorld = function () {
+    console.log('Olá Mundo!');
+};
+// Função Arrow:
+const saudacao = (nome) => {
+    return console.log(`Olá, ${nome}!`);
+}
+// Arrow function curta:
+const saudacaoTwo = (nome) => console.log(`Olá, ${nome}!`);
+
+/* =======================================================*/
+// Funções de multiplicar dos quatro tipos de função 
+function multiplicar (numero, fator){
+    return numero * fator;
+}
+// Função anônima:
+let multiAnon = function (numero, fator) {  
+    return numero * fator;
+};
+// Função Arrow:
+const multiArrow = (numero, fator) => {
+    return numero * fator;
+};
+// Função Arrow curta:
+const multiArrowShort = (numero, fator) => numero * fator;
+/* =======================================================*/
+// Funções com os quatro tipos de função 
+function maiorNumero (a, b){
+    return a > b ? a:b;
+}  
+// Função anônima:
+const getMaxAnon = function (a, b) {
+    return a > b ? a:b;
+}
+// Arrow function com ternário
+const getMaxArrow = (a, b) => {
+    return a > b ? a:b;
+}
+// Arrow function curta com ternário
+const getMaxShort = (a, b) => a > b ? a:b;
+
+const multPorEleMesmo = (numero) => numero * numero;
