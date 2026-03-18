@@ -1,22 +1,50 @@
-// Curso: Lógica de programação com JavaScript - Alura
+/* =========================================================
+1️⃣ FUNCTIONS
+========================================================= */
 
-boasVindas();
-
+// funções de Boas Vindas:
 function boasVindas(nome){
-
+    
     const nomeUsuario = nome ? `${nome}` : "";
-  
+    
     alert(`Boas Vindas ${nomeUsuario} ao Projeto de Fundamentos do Java Script.`);
-  
+    
     menu();
 }
 
+// 6. Desafio aula 02:
+function mensagemBoasVindas(){
+   let nome = prompt(`Qual o seu nome?`);
+
+   let menuDesafios = true;
+   voltar(nome, menuDesafios);
+
+   return boasVindas(nome);
+}
+
+// Função de voltar:
+function voltar(valor, menuDesafio){
+
+    // Se o valor digitado for null, é porque o usuário clicou em cancelar.
+    if(isNull(valor)){
+        if(menuDesafio){
+            menuDesafios();
+        }else{
+            sair();
+        }
+        return false;
+    }
+    return false;
+}
+
+// Funcao de Sair
 // Feature futura: Implementar o nome no Sair
 function sair(){
     alert("Até a próxima!");
     boasVindas();
 }
 
+// Funcao de Menus:
 function menu(){
     let opcaoProjeto = prompt("Você quer ir; A: Projeto, B: Desafios?");
     
